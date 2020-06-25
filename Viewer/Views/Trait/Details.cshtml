@@ -1,0 +1,46 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Viewer.Models.Trait;
+
+<div class='jumbotron'>
+  <h2>Trait Details</h2>
+</div>
+
+<div class="">
+  <div class='entryLabel'>
+    <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+  </div>
+
+  <div class=' entry'>
+    <hr />
+    @if(@Model.Characters.Count == 0)
+    {
+      <p>This Trait is not available in anything yet. :(</p>
+    }
+    else
+    {
+      <h4>Characters this Trait is available in:</h4>
+      <ul>
+        @foreach(var join in Model.Characters)
+        {
+          <li>@Html.ActionLink($"{join.Character.Description}", "Details", "Characters", new {id=join.CharacterId})</li>
+        }
+      </ul>
+    }
+  </div>
+</div>
+  @if(User.Identity.IsAuthenticated)
+  {
+    <div class='entryLabel propertyLabel'>
+      Trait Links
+    </div>
+
+    <div class='property'>
+      <p>@Html.ActionLink("Back to Traits", "Index")</p>
+      <p>@Html.ActionLink("Edit Trait", "Edit", new { id = Model.TraitId })</p>
+      <p>@Html.ActionLink("Delete Trait", "Delete", new { id = Model.TraitId })</p>
+    </div>
+  }
+</div>

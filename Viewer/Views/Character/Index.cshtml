@@ -1,0 +1,41 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Viewer.Models;
+@model List<Viewer.Models.Character>;
+
+  <div>
+    <div class='entryLabel'>
+      <h1>Characters</h1>
+    </div>
+    <div class='entry'>
+
+        @if (Model.Any())
+        {
+          <ul>
+            @foreach (Character Character in Model)
+            {
+              <li>@Html.ActionLink($"{Character.Description}", "Details", new { id = Character.CharacterId })</li>
+            }
+          </ul>
+        }
+        else
+        {
+          <h3>No Characters have been added yet!</h3>
+        }
+    </div>
+  </div>
+
+  <div>
+      @if(User.Identity.IsAuthenticated)
+      {
+        <div class='entryLabel propertyLabel'>
+          Characters menu
+        </div>
+        <div class='property'>
+          <p>@Html.ActionLink("Add new Character", "Create")</p>
+          <p>@Html.ActionLink("Home", "Index", "Home")</p>
+        </div>
+      }
+  </div>

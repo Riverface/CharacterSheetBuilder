@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Viewer.Models.Character
+<div>
+
+  <div class='entryLabel'>
+    <h4>Add a new Character</h4>
+  </div>
+
+  <div class='entry'>
+    @using (Html.BeginForm())
+    {
+      @Html.LabelFor(model => model.Description)
+      @Html.TextBoxFor(model => model.Description, new{@required = "required"})
+      @Html.DropDownList("TraitId")
+      <input type="submit" value="Add new Character" class="btn btn-default" />
+    }
+  </div>
+</div>
