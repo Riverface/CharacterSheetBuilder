@@ -53,7 +53,7 @@ git commit -m "Use README Boilerplate"
 Replace the contents of `README.md` with your project's:
 
 - Name
-- Description
+- Name
 - Installation instructions
 - Usage instructions
 - Support instructions
