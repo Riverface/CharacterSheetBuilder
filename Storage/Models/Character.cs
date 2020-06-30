@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-
+using System.Collections.Generic;
 namespace CharacterStorage.Models
 {
     public class Character
@@ -40,5 +40,11 @@ namespace CharacterStorage.Models
         [Range(1, 20, ErrorMessage = "Stats go from 1 to 20.")]
         public int Fortune { get; set; }
 
+        ICollection<CharacterTrait> Traits;
+
+        public Character()
+        {
+            this.Traits = new HashSet<CharacterTrait>();
+        }
     }
 }
