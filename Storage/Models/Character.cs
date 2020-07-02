@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
-namespace CharacterStorage.Models
+namespace Storage.Models
 {
     public class Character
     {

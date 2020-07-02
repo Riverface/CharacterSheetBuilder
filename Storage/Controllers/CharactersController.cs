@@ -1,18 +1,18 @@
-using CharacterStorage.Models;
+using Storage.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CharacterStorage.Controllers
+namespace Storage.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class CharactersController : ControllerBase
     {
-        private CharacterStorageContext _db;
+        private StorageContext _db;
 
-        public CharactersController(CharacterStorageContext db)
+        public CharactersController(StorageContext db)
         {
             _db = db;
         }

@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Storage.Migrations
 {
     [DbContext(typeof(StorageContext))]
-    [Migration("20200630182155_Initial")]
-    partial class Initial
+    [Migration("20200701190113_Seed Data")]
+    partial class SeedData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -136,6 +136,41 @@ namespace Storage.Migrations
                     b.HasKey("TraitId");
 
                     b.ToTable("Traits");
+
+                    b.HasData(
+                        new
+                        {
+                            TraitId = 1,
+                            Echo = -3,
+                            Fortune = 0,
+                            Judgement = 0,
+                            Magnetism = 0,
+                            Might = 1,
+                            Name = "Hardheaded",
+                            Spryness = 1
+                        },
+                        new
+                        {
+                            TraitId = 2,
+                            Echo = 0,
+                            Fortune = 0,
+                            Judgement = 0,
+                            Magnetism = 0,
+                            Might = -1,
+                            Name = "Wimpy",
+                            Spryness = 2
+                        },
+                        new
+                        {
+                            TraitId = 3,
+                            Echo = 0,
+                            Fortune = -10,
+                            Judgement = 4,
+                            Magnetism = 0,
+                            Might = 1,
+                            Name = "Big Booty",
+                            Spryness = 0
+                        });
                 });
 
             modelBuilder.Entity("Storage.Models.CharacterTrait", b =>

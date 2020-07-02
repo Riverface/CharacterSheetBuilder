@@ -1,4 +1,4 @@
-namespace CharacterStorage.Models
+namespace Storage.Models
 {
     public class CharacterTrait
     {

@@ -1,4 +1,4 @@
-﻿using CharacterStorage.Models;
+﻿using Storage.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CharacterStorage
+namespace Storage
 {
   public class Startup
   {
@@ -20,7 +20,7 @@ namespace CharacterStorage
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-      services.AddDbContext<CharacterStorageContext>(opt =>
+      services.AddDbContext<StorageContext>(opt =>
         opt.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
     }
